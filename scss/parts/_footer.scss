@@ -1,0 +1,41 @@
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 0;
+
+    > .container {
+        display: flex;
+        justify-content: space-between;
+
+        color: var(--text);
+
+        @include respond-to(handhelds) {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 15px;
+        }
+
+        a {
+            color: var(--primary);
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        small {
+            font-size: 0.9em;
+        }
+
+        > .side:nth-child(2) {
+            width: 30%;
+            text-align: right;
+
+            @include respond-to(handhelds) {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+}

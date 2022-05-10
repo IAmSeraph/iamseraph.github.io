@@ -1,0 +1,52 @@
+.heading-container {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 50px 0;
+
+
+    > .heading {
+        position: relative;
+    
+        color: var(--primary);
+        
+        font-size: 4em;
+        text-transform: uppercase;
+        font-weight: bold;
+
+        z-index: 5;
+
+        
+        @include respond-to(handhelds) {
+            font-size: 2.7em;
+            text-align: center;
+        }
+        @include respond-to(medium) {
+            font-size: 3.7em;
+        }
+    }
+
+    > .background {
+        position: absolute;
+        
+        color: var(--heading-background);
+        
+        font-size: 6.4em;
+        letter-spacing: 4px;
+        word-break: keep-all;
+        text-transform: uppercase;
+        font-weight: bold;
+
+        @include respond-to(handhelds) {
+            font-size: 3.4em;
+            text-align: center;
+            display: none;
+        }
+        @include respond-to(medium) {
+            font-size: 4.8em;
+        }
+    }
+}

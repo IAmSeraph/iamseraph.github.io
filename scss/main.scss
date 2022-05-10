@@ -1,0 +1,20 @@
+@import "variables";
+@import "responsivity";
+@import "reset";
+
+body {
+    background-color: var(--background);
+    font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .heading {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+@import "parts/navigation";
+@import "parts/sections";
+@import "parts/button";
+@import "parts/heading";
+@import "parts/chip";
+@import "parts/footer";
+@import "parts/switcher";

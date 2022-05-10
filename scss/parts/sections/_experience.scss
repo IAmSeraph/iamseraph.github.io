@@ -1,0 +1,137 @@
+main > section#experience {
+    position: relative;
+    overflow: hidden;
+
+    &:before {
+        position: absolute;
+
+        content: " ";
+        background: linear-gradient(175deg, var(--primary-gradient-1), var(--primary-gradient-2));
+
+        border-radius: 50%;
+
+        left: 25%;
+        top: -10%;
+
+        width: 50%;
+        height: 13%;
+
+        box-shadow: 0 0 20px 3px #00000014;
+    }
+
+    > .heading-container {
+        margin-top: 140px;
+    }
+
+    > .container {
+        position: relative;
+        z-index: 1;
+        min-height: 40vh;
+
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        gap: 100px;
+        @include respond-to(handhelds) {
+            padding-bottom: 50px; 
+        }
+        @include respond-to(medium) {
+            padding-bottom: 50px; 
+        }
+
+        > .lists {
+            width: 100%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 40px;
+
+            @include respond-to(handhelds) {
+                flex-direction: column;
+            }
+            @include respond-to(medium) {
+                flex-direction: column;
+            }
+
+            > .list {
+                flex: 1;
+
+                > h3 {
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    color: var(--primary);
+                    font-size: 1.3em;
+                    margin-bottom: 20px;
+                    letter-spacing: 2px;
+
+                    @include respond-to(handhelds) {
+                        text-align: center;
+                    }
+                    @include respond-to(medium) {
+                        text-align: center;
+                    }
+                }
+
+                > .chips {
+                    margin-top: 20px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+
+                    @include respond-to(handhelds) {
+                        justify-content: center;
+                    }
+                    @include respond-to(medium) {
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+
+        > .jobs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+
+            @include respond-to(handhelds) {
+                flex-direction: column;
+            }
+            > .job {
+                color: var(--text);
+                width: 30%;
+
+                @include respond-to(handhelds) {
+                    width: 100%;
+                }
+                @include respond-to(medium) {
+                    width: 45%;
+                }
+
+                h3 {
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    color: var(--primary);
+                    font-size: 1.3em;
+                    letter-spacing: 2px;
+                }
+
+                p.subtitle {
+                    font-size: 0.9em;
+                    margin-bottom: 10px;
+                }
+                p.time {
+                    font-size: 0.7em;
+                    margin-bottom: 4px;
+                }
+
+                p:not(.subtitle):not(.time) {
+                    line-height: 1.5em;
+                }
+            }
+        }
+    }
+}

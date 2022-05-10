@@ -1,0 +1,9 @@
+span.chip {
+    display: block;
+    background: linear-gradient(15deg, var(--primary-gradient-1), var(--primary-gradient-2));
+    padding: 8px 16px;
+    border-radius: 10px;
+    line-height: 1em;
+
+    color: var(--text-on-primary);
+}

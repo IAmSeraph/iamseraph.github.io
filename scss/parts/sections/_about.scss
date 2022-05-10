@@ -1,0 +1,166 @@
+main > section#about {
+    position: relative;
+    overflow: hidden;
+
+    &:before {
+        position: absolute;
+
+        content: " ";
+        background: linear-gradient(5deg, var(--primary-gradient-1), var(--primary-gradient-2));
+
+        border-radius: 50%;
+
+        left: -25%;
+        bottom: -10%;
+
+        width: 150%;
+        height: 15%;
+
+        box-shadow: 0 0 20px 3px #00000014;
+    }
+
+    > .container {
+        position: relative;
+        z-index: 1;
+        min-height: 80vh;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        gap: 100px;
+
+        padding-bottom: 50px;
+        
+        @include respond-to(handhelds) {
+            flex-direction: column;
+
+            padding-bottom: 140px;
+        }
+        @include respond-to(medium) {
+            flex-direction: column;
+
+            padding-bottom: 140px;
+        }
+
+        > .about {
+            width: 65%;
+
+            @include respond-to(handhelds) {
+                width: 100%;
+                text-align: center;
+            }
+            @include respond-to(medium) {
+                width: 100%;
+                text-align: center;
+            }
+            
+            h3 {
+                font-size: 4em;
+
+                margin-bottom: 50px;
+
+                color: var(--primary);
+                
+                @include respond-to(handhelds) {
+                    font-size: 3.5em;
+                }
+                
+                @include respond-to(medium) {
+                    font-size: 3em;
+                }
+            }
+
+            p {
+                color: var(--text);
+                font-size: 1.15em;
+                line-height: 1.5em;
+
+                &:not(:last-child) {
+                    margin-bottom: 15px;
+                }
+            }
+        }
+
+        > .side {
+            width: 35%;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            
+            @include respond-to(handhelds) {
+                width: 100%;
+            }
+            
+            @include respond-to(medium) {
+                width: 100%;
+            }
+            
+            h4 {
+                font-weight: bold;
+                text-transform: uppercase;
+                color: var(--primary);
+                font-size: 1.3em;
+                margin-bottom: 20px;
+                letter-spacing: 2px;
+            }
+
+            > .facts {
+                padding: 15px;
+
+                background-color: var(--background-card);
+                border-radius: 5px;
+
+                display: flex;
+                flex-direction: column;
+
+                > .fact {
+                    display: flex;
+                    justify-content: space-between;
+
+                    &:not(:last-child) {
+                        margin-bottom: 15px;
+                    }
+
+                    > .name {
+                        color: var(--text);
+                        min-width: 15%;
+                    }
+
+                    > .value {
+                        color: var(--primary);
+                        text-align: right;
+                    }
+                }
+            }
+
+            > .studies {
+                padding: 15px;
+
+                background-color: var(--background-card);
+                border-radius: 5px;
+                display: flex;
+                flex-direction: column;
+
+                > .study {
+                    color: var(--text);
+                    
+                    &:not(:last-child) {
+                        margin-bottom: 25px;
+                    }
+
+                    h5 {
+                        font-size: 1.4em;
+                        margin-bottom: 10px;
+
+                        color: var(--primary);
+                    }
+
+                    p.time {
+                        font-size: 0.7em;
+                    }
+                }
+            }
+        }
+    }
+}

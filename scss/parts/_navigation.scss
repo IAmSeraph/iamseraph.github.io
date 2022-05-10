@@ -1,0 +1,78 @@
+aside.navigation {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    padding: 20px;
+    padding-left: 0;
+    z-index: 90;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    @include respond-to(handhelds) {
+        padding: 10px;
+        height: auto;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 15px;
+
+        a {
+            height: 40px;
+            width: 40px;
+            padding: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 1.7em;
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            background-color: var(--navigation-button);
+
+            box-shadow: 0 0 5px 1px #00000044;
+            transition: transform 0.5s ease, background-color 0.3s ease;
+
+            cursor: pointer;
+
+            &:not(#menu):hover {
+                background-color: var(--primary);
+                transform: scale(1.1);
+                transition: transform 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28), background-color 0.3s ease;
+            }
+
+            &.active {
+                background-color: var(--primary);
+
+                &:hover {
+                    background-color: var(--primary-focus);
+                }
+            }
+
+            &#menu {
+                display: none;
+                
+                @include respond-to(handhelds) {
+                    display: flex;
+                }
+            }
+
+            @include respond-to(handhelds) {
+                display: none;
+            }
+        }
+
+        &.mobile a {
+            @include respond-to(handhelds) {
+                display: flex;
+            }
+        }
+    }
+}

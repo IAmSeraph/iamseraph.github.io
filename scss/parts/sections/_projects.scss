@@ -1,0 +1,135 @@
+@keyframes rotate {
+    from {
+        transform: rotate(0);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+main > section#projects {
+    position: relative;
+    overflow: hidden;
+    min-height: calc(100vh - 50px);
+    padding-bottom: 50px;
+
+    > .heading-container {
+        margin-bottom: 150px;
+    }
+
+    &:before {
+        content: " ";
+
+        position: absolute;
+        top: -5%;
+        right: 10%;
+
+        width: 150px;
+        height: 150px;
+        border-radius: 20px;
+
+        background: linear-gradient(15deg, var(--primary-gradient-1), var(--primary-gradient-2));
+
+        animation-name: rotate;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-duration: 18s;
+
+        @include respond-to(handhelds) {
+            right: -5%;
+        }
+        @include respond-to(medium) {
+            right: -3%;
+        }
+    }
+
+    > .container {
+        position: relative;
+        z-index: 1;
+        min-height: 70vh;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        gap: 100px;
+
+        > .projects {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+
+            @include respond-to(handhelds) {
+                grid-template-columns: 1fr;
+            }
+            @include respond-to(medium) {
+                grid-template-columns: 1fr;
+            }
+
+            > .project {
+                background-color: var(--background-card);
+                border-radius: 5px;
+                padding: 15px;
+
+                > .heading {
+                    display: flex;
+                    justify-content: space-between;
+
+                    > h3 {
+                        font-weight: bold;
+                        text-transform: uppercase;
+                        color: var(--primary);
+                        font-size: 1.4em;
+                        letter-spacing: 2px;
+                    }
+
+                    > .social {
+                        width: 15%;
+                        font-size: 1.6em;
+
+                        display: flex;
+                        justify-content: flex-end;
+                        gap: 15px;
+
+                        
+                        @include respond-to(handhelds) {
+                            width: 30%;
+                        }
+                        @include respond-to(medium) {
+                            width: 20%;
+                        }
+
+                        a {
+                            color: var(--text);
+                            transition: color 0.5s ease, transform 0.3s ease;
+
+                            &:hover {
+                                color: var(--primary);
+                                transform: scale(1.3);
+
+                                transition: color 0.5s ease, transform 0.3s ease;
+                            }
+                        }
+                    }
+                }
+
+                > .content {
+                    margin-top: 15px;
+                    color: var(--text);
+                    line-height: 1.5em;
+                }
+
+                > .chips {
+                    margin-top: 20px;
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                }
+            }
+        }
+    }
+}

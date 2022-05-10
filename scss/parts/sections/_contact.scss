@@ -1,0 +1,112 @@
+main > section#contact {
+    position: relative;
+    overflow: hidden;
+    min-height: 50vh;
+    padding-bottom: 100px;
+    justify-content: space-between;
+
+    &:before {
+        position: absolute;
+
+        content: " ";
+        background: linear-gradient(5deg, var(--primary-gradient-1), var(--primary-gradient-2));
+        
+        transform: skew(10deg);
+        border-radius: 50%;
+
+        left: -25%;
+        bottom: -10%;
+
+        width: 150%;
+        height: 15%;
+
+        box-shadow: 0 0 20px 3px #00000014;
+    }
+    
+    > .container {
+        height: 100%;
+        position: relative;
+        z-index: 1;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        gap: 100px;
+
+        > .text {
+            text-align: center;
+
+            h3 {
+                font-weight: bold;
+                text-transform: uppercase;
+                color: var(--primary);
+                font-size: 1.4em;
+                letter-spacing: 2px;
+                margin-bottom: 15px;
+            }
+
+            p {
+                color: var(--text);
+                line-height: 1.4em;
+            }
+        }
+
+        > .contact {
+            display: flex;
+            gap: 30px;
+
+            > .section {
+                display: flex;
+                gap: 15px;
+
+                > .icon {
+                    font-size: 3em;
+                    color: var(--primary)
+                }
+
+                > .content {
+                    padding: 3px 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    color: var(--text);
+
+                    > h4 {
+                        text-transform: uppercase;
+                        font-size: 1.2em;
+                        opacity: 0.8; // TODO: BAD!
+                    }
+                }
+            }
+        }
+        
+        > .social {
+            display: flex;
+            gap: 30px;
+            
+            > .platform {
+                width: 35px;
+                height: 35px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: var(--text);
+                font-size: 1.6em;
+
+                text-decoration: none;
+                padding: 10px;
+                border-radius: 50%;
+                background-color: var(--background-card);
+                transition: background-color 0.5s ease, transform 0.5s ease;
+
+                &:hover {
+                    background-color: var(--primary);
+                    transform: scale(1.1);
+                    transition: background-color 0.5s ease, transform 0.5s ease;
+                }
+            }
+        }
+    }
+}

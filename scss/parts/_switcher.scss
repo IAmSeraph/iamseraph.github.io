@@ -1,0 +1,27 @@
+aside.switcher {
+    position: fixed;
+
+    bottom: 10px;
+    right: -20px;
+
+    padding: 10px 15px;
+    padding-right: 35px;
+
+    background-color: var(--primary);
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+
+    color: var(--text-on-primary);
+
+    z-index: 99;
+
+    font-size: 2em;
+    transition: transform 0.5s ease;
+
+    &:hover {
+        transform: translateX(-20px);
+        cursor: pointer;
+
+        transition: transform 0.5s ease;
+    }
+}
