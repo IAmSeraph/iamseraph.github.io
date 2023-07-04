@@ -7,26 +7,26 @@ jQuery.fn.loadRepositories = function(user) {
         let display = "";
         $(repositories.data).each(function() {
             let project = "<div class=\"project\">\n"
-            project.concat("<div class=\"heading\">\n");
-            project.concat("<h3>" + this.name + "</h3>\n");
-            project.concat("<div class=\"social\">\n")
-            project.concat("<a href=\"" + this.html_url + "\" target=\"_blank\" rel=\"Link to GitHub\"><i class=\"fab fa-github\"></i></a>\n");
+            project += "<div class=\"heading\">\n";
+            project += "<h3>" + this.name + "</h3>\n";
+            project += "<div class=\"social\">\n)
+            project += "<a href=\"" + this.html_url + "\" target=\"_blank\" rel=\"Link to GitHub\"><i class=\"fab fa-github\"></i></a>\n";
             if (this.homepage !== "" && this.homepage !== null)
-                project.concat("<a href=\"" + this.homepage + "\" target=\"_blank\" rel=\"Link to website\"><i class=\"fab fa-globe-europe\"></i></a>\n");
-            project.concat("</div>\n");
-            project.concat("</div></br>\n");
-            project.concat("<div class=\"content\">\n");
-            project.concat("<p>" + this.description + "</p>\n");
-            project.concat("</div></br>\n");
-            project.concat("<div class=\"chips\">\n");
+                project += "<a href=\"" + this.homepage + "\" target=\"_blank\" rel=\"Link to website\"><i class=\"fab fa-globe-europe\"></i></a>\n";
+            project += "</div>\n";
+            project += "</div></br>\n";
+            project += "<div class=\"content\">\n";
+            project += "<p>" + this.description + "</p>\n";
+            project += "</div></br>\n";
+            project += "<div class=\"chips\">\n";
             if (this.language !== "" && this.language !== null)
-                project.concat("<span class=\"chip\">" + this.language + "</span>\n");
+                project += "<span class=\"chip\">" + this.language + "</span>\n";
             if (this.private)
-                project.concat("<span class=\"chip\">Private</span>\n");
+                project += "<span class=\"chip\">Private</span>\n";
             else
-                project.concat("<span class=\"chip\">Public</span>\n");
-            project.concat("</div></br>\n");
-            project.concat("</div>\n");
+                project += "<span class=\"chip\">Public</span>\n";
+            project += "</div></br>\n";
+            project += "</div>\n";
             display.concat(project);
             console.log("Project:\n" + project);
         });
