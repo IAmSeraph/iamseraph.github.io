@@ -6,31 +6,31 @@ jQuery.fn.loadRepositories = function(user) {
         console.log(repositories);
         target.empty();
         let display = "";
-        $(repositories).each(function() {
+        $(repositories.data).each(function() {
             if (this.name === ".github" || this.name === "iamseraph.github.io")
                 return;
             let project = "<div class=\"project\">\n"
-            project.append("<div class=\"heading\">\n");
-            project.append("<h3>" + this.name + "</h3>\n");
-            project.append("<div class=\"social\">")
-            project.append("<a href=\"" + this.html_url + "\" target=\"_blank\" rel=\"Link to GitHub\"><i class=\"fab fa-github\"></i></a>\n");
+            concat(project, "<div class=\"heading\">\n");
+            concat(project, "<h3>" + this.name + "</h3>\n");
+            concat(project, "<div class=\"social\">")
+            concat(project, "<a href=\"" + this.html_url + "\" target=\"_blank\" rel=\"Link to GitHub\"><i class=\"fab fa-github\"></i></a>\n");
             if (this.homepage !== "" && this.homepage !== null)
-                project.append("<a href=\"" + this.homepage + "\" target=\"_blank\" rel=\"Link to website\"><i class=\"fab fa-globe-europe\"></i></a>\n");
-            project.append("</div>\n");
-            project.append("</div></br>\n");
-            project.append("<div class=\"content\">\n");
-            project.append("<p>" + this.description + "</p>\n");
-            project.append("</div></br>\n");
-            project.append("<div class=\"chips\">\n");
+                concat(project, "<a href=\"" + this.homepage + "\" target=\"_blank\" rel=\"Link to website\"><i class=\"fab fa-globe-europe\"></i></a>\n");
+            concat(project, "</div>\n");
+            concat(project, "</div></br>\n");
+            concat(project, "<div class=\"content\">\n");
+            concat(project, "<p>" + this.description + "</p>\n");
+            concat(project, "</div></br>\n");
+            concat(project, "<div class=\"chips\">\n");
             if (this.language !== "" && this.language !== null)
-                project.append("<span class=\"chip\">" + this.language + "</span>\n");
+                concat(project, "<span class=\"chip\">" + this.language + "</span>\n");
             if (this.private)
-                project.append("<span class=\"chip\">Private</span>\n");
+                concat(project, "<span class=\"chip\">Private</span>\n");
             else
-                project.append("<span class=\"chip\">Public</span>\n");
-            project.append("</div></br>\n");
-            project.append("</div>\n");
-            display.append(project);
+                concat(project, "<span class=\"chip\">Public</span>\n");
+            concat(project, "</div></br>\n");
+            concat(project, "</div>\n");
+            concat(display, project);
         });
         target.html(display);
     });
