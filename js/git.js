@@ -3,7 +3,6 @@ jQuery.fn.loadRepositories = function(user) {
     this.html("<h2>Querying GitHub for projects...</h2>");
     let target = this;
     $.githubUser(user, function(repositories) {
-        console.log(repositories);
         target.empty();
         let display = "";
         $(repositories.data).each(function() {
@@ -32,6 +31,8 @@ jQuery.fn.loadRepositories = function(user) {
             project.concat("</div>\n");
             display.concat(project);
         });
+        console.log(target);
+        console.log(display);
         target.html(display);
     });
 };
