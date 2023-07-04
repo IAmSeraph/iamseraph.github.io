@@ -6,10 +6,9 @@ jQuery.fn.loadRepositories = function(user) {
     this.html("<h2>Querying GitHub for projects...</h2>");
     let target = this;
     $.githubUser(user, function(repositories) {
-        sortByPopularity(repositories);
         target.empty();
         let display = "";
-        $(repos).each(function() {
+        $(repositories).each(function() {
             if (this.name === ".github" || this.name === "iamseraph.github.io")
                 return;
             let project = "<div class=\"project\">\n"
@@ -37,16 +36,6 @@ jQuery.fn.loadRepositories = function(user) {
         });
         target.html(display);
     });
-
-    function sortByPopularity(repositories) {
-        repositories.sort(function(a, b) {
-            return calculatePopularity(b)-calculatePopularity(a);
-        });
-    };
-
-    function calculatePopularity(repository) {
-        return repository.watchers_count+(repository.stargazers_count*2)+(repository.forks_count*3);
-    }
 };
 
 $("projects").loadRepositories("IAmSeraph");
