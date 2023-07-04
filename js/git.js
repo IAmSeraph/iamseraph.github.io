@@ -5,27 +5,16 @@ jQuery.loadRepositories = function(user) {
         $(".projects").empty();
         let display = "";
         $(repositories.data).each(function() {
-            let project = "<div class=\"project\">\n"
-            project += "<div class=\"heading\">\n";
-            project += "<h3>" + this.name + "</h3>\n";
-            project += "<div class=\"social\">\n";
-            project += "<a href=\"" + this.html_url + "\" target=\"_blank\" rel=\"Link to GitHub\"><i class=\"fab fa-github\"></i></a>\n";
+            let project = "<div class=\"project\">\n<div class=\"heading\">\n<h3>" + this.name + "</h3>\n<div class=\"social\">\n<a href=\"" + this.html_url + "\" target=\"_blank\" rel=\"Link to GitHub\"><i class=\"fab fa-github\"></i></a>\n";
             if (this.homepage !== "" && this.homepage !== null)
                 project += "<a href=\"" + this.homepage + "\" target=\"_blank\" rel=\"Link to website\"><i class=\"fas fa-globe-europe\"></i></a>\n";
-            project += "</div>\n";
-            project += "</div></br>\n";
-            project += "<div class=\"content\">\n";
-            project += "<p>" + this.description + "</p>\n";
-            project += "</div></br>\n";
-            project += "<div class=\"chips\">\n";
+            project += "</div>\n</div></br>\n<div class=\"content\">\n<p>" + this.description + "</p>\n</div></br>\n<div class=\"chips\">\n<span class=\"chip\">" + this.private ? "Private" : "Public" + "</span>\n</div></br>\n<div class=\"chips\">\n";
             if (this.language !== "" && this.language !== null)
-                project += "<span class=\"chip\">" + this.language + "</span>\n";
-            if (this.private)
-                project += "<span class=\"chip\">Private</span>\n";
-            else
-                project += "<span class=\"chip\">Public</span>\n";
-            project += "</div></br>\n";
-            project += "</div>\n";
+                $(this.language).each(function(language) { project += "<span class=\"chip\">" + language + "</span>\n"; });
+            project += "</div></br>\n<div class=\"chips\">\n";
+            if (this.topics !== "" && this.topics !== null)
+                $(this.topics).each(function(topic) { project += "<span class=\"chip\">" + topic + "</span>\n"; });
+            project += "</div></br>\n</div>\n";
             display += project;
         });
         $(".projects").html(display);
