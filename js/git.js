@@ -1,7 +1,4 @@
-jQuery.githubUser = function(user, cbfun) {
-    $.ajax({ url: "https://api.github.com/users/" + user + "/repos?callback=?", type: "GET", headers: {  Authorization: "Bearer " + $("meta[name=\"csrf-token\"]").attr("content"), Accept: "application/vnd.github+json" }, async: false, success: cbfun });
-};
-
+jQuery.githubUser = function(user, cbfun) { $.ajax({ url: "https://api.github.com/users/" + user + "/repos?callback=?", type: "GET", headers: {  Authorization: "Bearer " + $("meta[name=\"csrf-token\"]").attr("content"), Accept: "application/vnd.github+json" }, success: cbfun, error: console.log(error) }); };
 jQuery.fn.loadRepositories = function(user) {
     this.html("<h2>Querying GitHub for projects...</h2>");
     let target = this;
@@ -37,5 +34,4 @@ jQuery.fn.loadRepositories = function(user) {
         target.html(display);
     });
 };
-
-$("projects").loadRepositories("IAmSeraph");
+$(".projects").loadRepositories("IAmSeraph");
