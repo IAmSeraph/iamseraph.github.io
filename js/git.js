@@ -6,12 +6,10 @@ jQuery.fn.loadRepositories = function(user) {
         target.empty();
         let display = "";
         $(repositories.data).each(function() {
-            if (this.name === ".github" || this.name === "iamseraph.github.io")
-                return;
             let project = "<div class=\"project\">\n"
             project.concat("<div class=\"heading\">\n");
             project.concat("<h3>" + this.name + "</h3>\n");
-            project.concat("<div class=\"social\">")
+            project.concat("<div class=\"social\">\n")
             project.concat("<a href=\"" + this.html_url + "\" target=\"_blank\" rel=\"Link to GitHub\"><i class=\"fab fa-github\"></i></a>\n");
             if (this.homepage !== "" && this.homepage !== null)
                 project.concat("<a href=\"" + this.homepage + "\" target=\"_blank\" rel=\"Link to website\"><i class=\"fab fa-globe-europe\"></i></a>\n");
@@ -30,9 +28,10 @@ jQuery.fn.loadRepositories = function(user) {
             project.concat("</div></br>\n");
             project.concat("</div>\n");
             display.concat(project);
+            console.log("Project:\n" + project);
         });
-        console.log(target);
-        console.log(display);
+        console.log("HTML: " + display);
+        console.log("Target: " + target);
         target.html(display);
     });
 };
