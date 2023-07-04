@@ -36,3 +36,7 @@ jQuery.fn.loadRepositories = function(user) {
         target.html(display);
     });
 };
+
+window.onload = function() {
+    $("#projects.container.projects").loadRepositories("IAmSeraph");
+};
