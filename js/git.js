@@ -9,7 +9,7 @@ jQuery.fn.loadRepositories = function(user) {
             let project = "<div class=\"project\">\n"
             project += "<div class=\"heading\">\n";
             project += "<h3>" + this.name + "</h3>\n";
-            project += "<div class=\"social\">\n)
+            project += "<div class=\"social\">\n";
             project += "<a href=\"" + this.html_url + "\" target=\"_blank\" rel=\"Link to GitHub\"><i class=\"fab fa-github\"></i></a>\n";
             if (this.homepage !== "" && this.homepage !== null)
                 project += "<a href=\"" + this.homepage + "\" target=\"_blank\" rel=\"Link to website\"><i class=\"fab fa-globe-europe\"></i></a>\n";
