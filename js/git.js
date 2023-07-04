@@ -33,6 +33,7 @@ jQuery.fn.loadRepositories = function(user) {
             else
                 project.append("<span class=\"chip\">Public</span>\n");
             project.append("</div></br>\n");
+            project.append("</div>\n");
             display.append(project);
         });
         target.html(display);
