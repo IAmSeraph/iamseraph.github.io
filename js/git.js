@@ -1,4 +1,7 @@
 jQuery.githubUser = function(user, cbfun) {
+    $.ajaxSetup({
+        headers: { "X-CSRFToken": $("meta[name=\"csrf-token\"]").attr("content") }
+    });
     $.getJSON("https://api.github.com/users/" + user + "/repos?callback=?", cbfun);
 };
 
