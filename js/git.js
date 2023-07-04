@@ -1,7 +1,7 @@
 jQuery.githubUser = function(user, cbfun) { $.ajax({ dataType: "json", url: "https://api.github.com/users/" + user + "/repos?callback=?", headers: {  Authorization: "Bearer " + $("meta[name=\"csrf-token\"]").attr("content"), Accept: "application/vnd.github+json" }, success: cbfun, error: function(error) { console.log(error); } }); };
 jQuery.fn.loadRepositories = function(user) {
-    this.html("<h2>Querying GitHub for projects...</h2>");
-    let target = this;
+    let target = $("#projects.container.projects");
+    target.html("<h2>Querying GitHub for projects...</h2>");
     $.githubUser(user, function(repositories) {
         target.empty();
         let display = "";
@@ -27,15 +27,12 @@ jQuery.fn.loadRepositories = function(user) {
                 project += "<span class=\"chip\">Public</span>\n";
             project += "</div></br>\n";
             project += "</div>\n";
-            display.concat(project);
-            console.log("Project:\n" + project);
+            display += project;
         });
-        console.log("HTML: " + display);
-        console.log("Target: " + target);
         target.html(display);
     });
 };
 
 window.onload = function() {
-    $("#projects.container.projects").loadRepositories("IAmSeraph");
+    $.loadRepositories("IAmSeraph");
 };
