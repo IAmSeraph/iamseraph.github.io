@@ -11,7 +11,7 @@ jQuery.loadRepositories = function(user) {
             project += "<div class=\"social\">\n";
             project += "<a href=\"" + this.html_url + "\" target=\"_blank\" rel=\"Link to GitHub\"><i class=\"fab fa-github\"></i></a>\n";
             if (this.homepage !== "" && this.homepage !== null)
-                project += "<a href=\"" + this.homepage + "\" target=\"_blank\" rel=\"Link to website\"><i class=\"fab fa-globe-europe\"></i></a>\n";
+                project += "<a href=\"" + this.homepage + "\" target=\"_blank\" rel=\"Link to website\"><i class=\"fas fa-globe-europe\"></i></a>\n";
             project += "</div>\n";
             project += "</div></br>\n";
             project += "<div class=\"content\">\n";
