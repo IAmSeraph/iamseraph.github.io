@@ -5,8 +5,7 @@ jQuery.githubUser = function(user, cbfun) {
 jQuery.fn.loadRepositories = function(user) {
     this.html("<h2>Querying GitHub for projects...</h2>");
     let target = this;
-    $.githubUser(user, function(data) {
-        let repositories = data.user.repositories;
+    $.githubUser(user, function(repositories) {
         sortByPopularity(repositories);
         target.empty();
         let display = "";
