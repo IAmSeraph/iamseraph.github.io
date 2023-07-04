@@ -1,7 +1,4 @@
 jQuery.githubUser = function(user, cbfun) {
-    $.ajaxSetup({
-        headers: { "Accept": "application/vnd.github+json", "Authorization": "Bearer " + $("meta[name=\"csrf-token\"]").attr("content") }
-    });
     $.getJSON("https://api.github.com/users/" + user + "/repos?callback=?", cbfun);
 };
 
@@ -41,4 +38,7 @@ jQuery.fn.loadRepositories = function(user) {
     });
 };
 
+$.ajaxSetup({
+    headers: { "Accept": "application/vnd.github+json", "Authorization": "Bearer " + $("meta[name=\"csrf-token\"]").attr("content") }
+});
 $("projects").loadRepositories("IAmSeraph");
